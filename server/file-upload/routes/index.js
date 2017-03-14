@@ -9,7 +9,7 @@ router.get('/', (req, res, next) => {
   res.render('index', { title: 'Express' });
 });
 
-router.post('/', (req, res, next) => {
+router.post('/api/upload', (req, res, next) => {
   let path = '';
   upload(req, res, err => {
     if(err) {
