@@ -4,17 +4,20 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { ClipboardService } from './clipboard.service';
+import { ClipboardDirective } from './clipboard.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ClipboardDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [ClipboardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
