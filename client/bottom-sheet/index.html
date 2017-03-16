@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Bottom Sheet</title>
+        <meta name="vieport" content="width:device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.3/angular-material.css">
+        <link rel="stylesheet" href="https://material.angularjs.org/1.1.3/docs.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div ng-controller="BottomSheetExample" class="md-padding bottomSheetdemoBasicUsage" ng-cloak="" ng-app="MyApp">
+            <h2 class="md-title">Usage</h2>
+            <p>Bottom sheets can be displayed by clicking one of the buttons below.  Once shown, it can be
+            dismissed by either swiping down or clicking in the shaded area.</p>
+            <h2 class="md-title">Actions</h2>
+            <p>Use one of the following buttons to display a bottom sheet.</p>
+            <div class="bottom-sheet-demo inset" layout="row" layout-sm="column" layout-align="center">
+                <md-button flex="50" class="md-primary md-raised" ng-click="showListBottomSheet()">Show as List</md-button>
+                <md-button flex="50" class="md-primary md-raised" ng-click="showGridBottomSheet()">Show as Grid</md-button>
+            </div>
+
+            <div ng-if="alert">
+                <br>
+                <b layout="row" layout-align="center center" class="md-padding">
+                {{alert}}
+                </b>
+            </div>
+            <script type="text/ng-template" id="bottom-sheet-grid-template.html">
+                <md-bottom-sheet class="md-grid" layout="column">
+                    <div layout="row" layout-align="center center" ng-cloak>
+                        <h4>Since <code>clickOutsideToClose = false</code>, drag down or press ESC to close</h4>
+                    </div>
+                    <div ng-cloak>
+                        <md-list flex layout="row" layout-align="center center">
+                        <md-list-item ng-repeat="item in items">
+                            <div>
+                            <md-button class="md-grid-item-content" ng-click="listItemClick($index)">
+                                <md-icon md-svg-src="{{item.icon}}"></md-icon>
+                                <div class="md-grid-text"> {{ item.name }} </div>
+                            </md-button>
+                            </div>
+                        </md-list-item>
+                        </md-list>
+                    </div>
+                </md-bottom-sheet>
+            </script>
+                <script type="text/ng-template" id="bottom-sheet-list-template.html">
+                    <md-bottom-sheet class="md-list md-has-header">
+                    <md-subheader ng-cloak>Comment Actions</md-subheader>
+                    <md-list ng-cloak>
+                        <md-list-item ng-repeat="item in items">
+
+                        <md-button
+                            ng-click="listItemClick($index)"
+                            md-autofocus="$index == 2"
+                            class="md-list-item-content" >
+                            <md-icon md-svg-src="{{item.icon}}"></md-icon>
+                            <span class="md-inline-list-icon-label">{{ item.name }}</span>
+                        </md-button>
+
+                        </md-list-item>
+                    </md-list>
+                    </md-bottom-sheet>
+                </script>
+            </div>
+
+            <!--
+            Copyright 2016 Google Inc. All Rights Reserved. 
+            Use of this source code is governed by an MIT-style license that can be foundin the LICENSE file at http://material.angularjs.org/HEAD/license.
+            -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js"></script>
+        <script src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.3/angular-material.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
